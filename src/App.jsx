@@ -4,16 +4,16 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Cities from "./pages/cities/Cities";
 import RootLayout from "./layout/RootLayout";
-import Weather from "./pages/weather/weather";
+import Home from "./pages/Home/Home";
+import Weather from "./pages/Weather/Weather";
 import Error404Page from "./pages/Error/Error404Page";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootLayout />}>
-        <Route index element={<Cities />} />
+        <Route index element={<Home />} />
         <Route path="weather" element={<Weather />} />
       </Route>
       <Route path="*" element={<Error404Page />} />
