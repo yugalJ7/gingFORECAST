@@ -36,14 +36,14 @@ const Forecast = ({
 
   return (
     <>
-      <p className="text-white mt-8">Today's Weather</p>
-      <div className="forecast flex flex-row gap-4 text-white mt-6">
+      <p className="text-white mt-20 px-16">Today's Weather</p>
+      <div className="forecast flex flex-row justify-around gap-4 text-white mt-6 px-16 ">
         {forecastData && list && (
           <>
             {list.map((data) => {
               const { dt_txt, main, dt, weather } = data;
               return (
-                <div key={dt}>
+                <div key={dt} className="bg-[#1E1E1E]">
                   <p>{dt_txt}</p>
                   <img
                     src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}

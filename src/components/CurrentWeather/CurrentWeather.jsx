@@ -46,13 +46,13 @@ const CurrentWeather = ({
   }, [geoData, displatUnit]);
 
   return (
-    <div className="weather text-white px-10 mt-8">
+    <div className="weather text-white px-10 mt-10">
       {/* current wheather */}
       {weatherDesc && main && (
-        <div className="flex gap-12">
-          <div className="mainDetails flex items-center bg-[#BBD8EC] text-black rounded-3xl pr-4 gap-2">
+        <div className="flex justify-center gap-12">
+          <div className="mainDetails flex items-center bg-[#BBD8EC] text-black rounded-3xl  pr-6">
             <img
-              src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
+              src={`https://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
               alt="weather"
               className=""
             />
@@ -60,9 +60,9 @@ const CurrentWeather = ({
               <p className="mainDetails_temperature flex font-semibold text-5xl justify-start">
                 {Math.floor(main.temp)}
                 {displatUnit === "Fahrenheit" ? (
-                  <WiCelsius />
+                  <span className="text-2xl font-normal">&#8451;</span>
                 ) : displatUnit === "Celsius" ? (
-                  <WiFahrenheit size={35} />
+                  <span className="text-2xl font-normal">&#8457;</span>
                 ) : (
                   ""
                 )}
@@ -73,24 +73,69 @@ const CurrentWeather = ({
               </p>
             </div>
           </div>
-          <div className="separationLine h-36 w-0.5 bg-[#1E1E1E]"></div>
-          <div className="otherDetails grid grid-cols-3 grid-row-2 ">
-            <p className="otherDetails_feelsLike flex">
-              Feels Like {main.feels_like}
-              {displatUnit === "Fahrenheit" ? (
-                <WiCelsius size={35} color="white" />
-              ) : displatUnit === "Celsius" ? (
-                <WiFahrenheit size={35} color="white" />
-              ) : (
-                ""
-              )}
-            </p>
-            <p>Humidity = {main.humidity}%</p>
-            <p>Wind Speed = {wind.speed}</p>
-            <p>Atmospheric pressure = {main.pressure}hPa</p>
-            <p>Visibility = {visibility}</p>
-            <p>Sunrise = {`${sunRiseHour}:${sunRiseMin}AM`}</p>
-            <p>Sunset = {`${sunSetHour}:${sunSetMin}PM`}</p>
+          <div className="separationLine h-48 w-0.5 bg-[#1E1E1E] mt-2"></div>
+          <div className="otherDetails grid grid-cols-[140px_140px_140px] grid-rows-[65px_65px_65px] gap-x-7 gap-y-3 ">
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold flex">
+                {Math.floor(main.feels_like)}
+                {displatUnit === "Fahrenheit" ? (
+                  <span className="text-sm font-extralight mt-[2px]">
+                    &#8451;
+                  </span>
+                ) : displatUnit === "Celsius" ? (
+                  <span className="text-sm font-extralight mt-[2px]">
+                    &#8457;
+                  </span>
+                ) : (
+                  ""
+                )}
+              </p>
+              <span className="text-sm font-extralight">Feels Like</span>
+            </div>
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold">
+                {main.humidity} <span className=" text-xl font-medium">%</span>
+              </p>
+              <span className="text-sm font-extralight">Humidity</span>
+            </div>
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold">
+                {Math.floor(wind.speed)}{" "}
+                {displatUnit === "Fahrenheit" ? (
+                  <span className="text-xl font-normal">m/s</span>
+                ) : displatUnit === "Celsius" ? (
+                  <span className="text-xl font-normal">mph</span>
+                ) : (
+                  ""
+                )}
+              </p>
+              <span className="text-sm font-extralight">Wind</span>
+            </div>
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold">
+                {main.pressure}{" "}
+                <span className=" text-xl font-medium">hPa</span>
+              </p>
+              <span className="text-sm font-extralight">Pressure</span>
+            </div>
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold">{visibility}</p>
+              <span className="text-sm font-extralight">Visibility</span>
+            </div>
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold">
+                {`${sunRiseHour}:${sunRiseMin}`}{" "}
+                <span className=" text-xl font-medium">AM</span>
+              </p>
+              <span className="text-sm font-extralight">Sunrise</span>
+            </div>
+            <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
+              <p className="text-2xl font-semibold">
+                {`${sunSetHour}:${sunSetMin}`}{" "}
+                <span className=" text-xl font-medium">PM</span>
+              </p>
+              <span className="text-sm font-extralight">Sunset</span>
+            </div>
           </div>
         </div>
       )}
