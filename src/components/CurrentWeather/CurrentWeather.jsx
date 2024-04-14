@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { WiCelsius } from "react-icons/wi";
-import { WiFahrenheit } from "react-icons/wi";
 
-const CurrentWeather = ({
-  geoData,
-  displatUnit,
-  changeUnit,
-  chooseUnit,
-  base,
-  api,
-}) => {
+const CurrentWeather = ({ geoData, displatUnit, chooseUnit, base, api }) => {
   const [weatherDesc, setWeatherDesc] = useState({});
 
-  const { main, name, wind, weather, visibility, sys } = weatherDesc;
+  const { main, wind, weather, visibility, sys } = weatherDesc;
 
   let sunRiseHour, sunRiseMin, sunSetHour, sunSetMin;
 
@@ -47,17 +38,15 @@ const CurrentWeather = ({
 
   return (
     <div className="weather text-white px-10 mt-10">
-      {/* current wheather */}
       {weatherDesc && main && (
         <div className="flex justify-center gap-12">
-          <div className="mainDetails flex items-center bg-[#BBD8EC] text-black rounded-3xl  pr-6">
+          <div className="mainDetails flex items-center bg-[#BBD8EC] text-black rounded-3xl pr-6">
             <img
               src={`https://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
               alt="weather"
-              className=""
             />
-            <div className="mainDetails_temp ">
-              <p className="mainDetails_temperature flex font-semibold text-5xl justify-start">
+            <div className="mainDetails_temperature ">
+              <p className="flex font-semibold text-5xl justify-start">
                 {Math.floor(main.temp)}
                 {displatUnit === "Fahrenheit" ? (
                   <span className="text-2xl font-normal">&#8451;</span>

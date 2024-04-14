@@ -43,31 +43,47 @@ const Forecast = ({
             {list.map((data) => {
               const { dt_txt, main, dt, weather } = data;
               return (
-                <div key={dt} className="bg-[#1E1E1E]">
-                  <p>{dt_txt}</p>
+                <div
+                  key={dt}
+                  className="bg-[#1E1E1E] flex flex-col items-center rounded-xl p-4"
+                >
+                  <p className="font-medium">{dt_txt.slice(11, 16)}</p>
                   <img
                     src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
                     alt=""
                   />
-                  <p>
-                    {main.temp_max}{" "}
-                    {displatUnit === "Fahrenheit" ? (
-                      <span>C</span>
-                    ) : displatUnit === "Celsius" ? (
-                      <span>F</span>
-                    ) : (
-                      ""
-                    )}
-                    -{main.temp_min}{" "}
-                    {displatUnit === "Fahrenheit" ? (
-                      <span>C</span>
-                    ) : displatUnit === "Celsius" ? (
-                      <span>F</span>
-                    ) : (
-                      ""
-                    )}
-                  </p>
-                  <p>{weather[0].description}</p>
+                  <div className="flex gap-1">
+                    <p className="text-lg flex">
+                      {Math.floor(main.temp_max)}
+                      {displatUnit === "Fahrenheit" ? (
+                        <span className="text-sm font-extralight mt-[2px]">
+                          &#8451;
+                        </span>
+                      ) : displatUnit === "Celsius" ? (
+                        <span className="text-sm font-extralight mt-[2px]">
+                          &#8457;
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </p>
+                    <span>-</span>
+                    <p className="text-lg flex">
+                      {Math.floor(main.temp_min)}
+                      {displatUnit === "Fahrenheit" ? (
+                        <span className="text-sm font-extralight mt-[2px]">
+                          &#8451;
+                        </span>
+                      ) : displatUnit === "Celsius" ? (
+                        <span className="text-sm font-extralight mt-[2px]">
+                          &#8457;
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </p>
+                  </div>
+                  <p className="capitalize">{weather[0].description}</p>
                 </div>
               );
             })}
