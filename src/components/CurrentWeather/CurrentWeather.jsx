@@ -39,14 +39,15 @@ const CurrentWeather = ({ geoData, displatUnit, chooseUnit, base, api }) => {
   return (
     <div className="weather text-white px-10 mt-10">
       {weatherDesc && main && (
-        <div className="flex justify-center gap-12">
-          <div className="mainDetails flex items-center bg-[#BBD8EC] text-black rounded-3xl pr-6">
+        <div className="flex justify-center gap-12 max-[870px]:flex-col items-center">
+          <div className="mainDetails flex items-center bg-[#BBD8EC] text-black rounded-3xl pr-7 w-80 max-[516px]:w-72">
             <img
               src={`https://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
               alt="weather"
+              className="max-[516px]:w-40"
             />
             <div className="mainDetails_temperature ">
-              <p className="flex font-semibold text-5xl justify-start">
+              <p className="flex font-semibold text-5xl justify-start max-[516px]:text-3xl">
                 {Math.floor(main.temp)}
                 {displatUnit === "Fahrenheit" ? (
                   <span className="text-2xl font-normal">&#8451;</span>
@@ -62,8 +63,8 @@ const CurrentWeather = ({ geoData, displatUnit, chooseUnit, base, api }) => {
               </p>
             </div>
           </div>
-          <div className="separationLine h-48 w-0.5 bg-[#1E1E1E] mt-2"></div>
-          <div className="otherDetails grid grid-cols-[140px_140px_140px] grid-rows-[65px_65px_65px] gap-x-7 gap-y-3 ">
+          <div className="separationLine h-48 w-0.5 bg-[#1E1E1E] mt-2 max-[870px]:hidden"></div>
+          <div className="otherDetails grid grid-cols-[140px_140px_140px] grid-rows-[65px_65px_65px] gap-x-7 gap-y-3  max-[870px]:grid-rows-[65px_65px] max-[516px]:gap-x-3 max-[516px]:grid-cols-[140px_140px]">
             <div className="bg-[#1E1E1E] rounded-xl flex flex-col items-center gap-1 py-1">
               <p className="text-2xl font-semibold flex">
                 {Math.floor(main.feels_like)}

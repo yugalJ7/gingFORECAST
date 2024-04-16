@@ -53,7 +53,7 @@ const Weather = () => {
     <>
       {isCity ? (
         <>
-          <div className="weather-header text-white flex w-screen justify-between items-center px-16 mt-6">
+          <div className="weather-header text-white flex w-screen justify-between items-center px-16 mt-6 max-[516px]:px-5 max-[418px]:flex-col max-[418px]:items-start max-[418px]:gap-4">
             <div className="cityName">
               <p className="text-4xl font-medium">
                 {geoData.name},<span className="ml-1">{geoData.country}</span>

@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
-import { WiCelsius } from "react-icons/wi";
-import { WiFahrenheit } from "react-icons/wi";
-const Forecast = ({
-  geoData,
-  displatUnit,
-  changeUnit,
-  chooseUnit,
-  base,
-  api,
-}) => {
+
+const Forecast = ({ geoData, displatUnit, chooseUnit, base, api }) => {
   const [forecastData, setForecastData] = useState({});
   const { list } = forecastData;
 
@@ -36,8 +28,10 @@ const Forecast = ({
 
   return (
     <>
-      <p className="text-white mt-20 px-16">Today's Weather</p>
-      <div className="forecast flex flex-row justify-around gap-4 text-white mt-6 px-16 ">
+      <p className="text-white mt-20 px-16 max-[516px]:mt-10">
+        Today's Weather
+      </p>
+      <div className="forecast flex flex-row justify-around items-center gap-4 text-white mt-6 px-16 max-[1100px]:overflow-x-scroll max-[516px]:flex-col max-[516px]:px-10 ">
         {forecastData && list && (
           <>
             {list.map((data) => {
@@ -45,7 +39,7 @@ const Forecast = ({
               return (
                 <div
                   key={dt}
-                  className="bg-[#1E1E1E] flex flex-col items-center rounded-xl p-4"
+                  className="bg-[#1E1E1E] flex flex-col items-center rounded-xl p-4 min-w-44 max-[516px]:w-36"
                 >
                   <p className="font-medium">{dt_txt.slice(11, 16)}</p>
                   <img
