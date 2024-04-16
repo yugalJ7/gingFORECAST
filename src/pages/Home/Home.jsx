@@ -39,32 +39,37 @@ const Home = () => {
   return (
     <>
       <div className="flex justify-center">
-        <div className="grid grid-cols-[130px_100px_130px] grid-rows-1 gap-60  bg-[#BBD8EC] text-black p-4 rounded w-86">
-          <p className="cursor-pointer flex items-center" onClick={sortNameAsc}>
-            City
-            <span className="ml-1">
-              <AiOutlineSortAscending />
-            </span>
-          </p>
-          <p>Country</p>
-          <p className="pl-6">Timezone</p>
-        </div>
-      </div>
-      <div className="flex flex-col h-screen overflow-y-scroll w-screen items-center pt-8  text-white">
-        {table.map((data) => {
-          return (
-            <NavLink
-              to={`/weather/${data.name}/${data.geoname_id}`}
-              key={data.geoname_id}
+        <div>
+          <div className="table_header grid grid-cols-[100px_70px_100px] sm:grid-cols-[130px_100px_130px] grid-rows-1 lg:gap-[28%] overflow-x-scroll  bg-[#BBD8EC] text-black p-4 mt-5 w-10/11d lg:w-[50rem] gap-1 sm:w-[40rem] sm:gap-[20%] rounded">
+            <p
+              className="cursor-pointer flex items-center"
+              onClick={sortNameAsc}
             >
-              <div className="grid grid-cols-[150px_100px_100px] grid-rows-1 gap-60 pb-4 pt-4 border-b-2  border-[#1E1E1E]">
-                <p>{data.name}</p>
-                <p>{data.cou_name_en}</p>
-                <p>{data.timezone}</p>
-              </div>
-            </NavLink>
-          );
-        })}
+              City
+              <span className="ml-1">
+                <AiOutlineSortAscending />
+              </span>
+            </p>
+            <p>Country</p>
+            <p className="pl-6">Timezone</p>
+          </div>
+          <div className="flex flex-col w-full lg:w-[50rem] sm:w-[40rem] justify-center pt-8 text-white   ">
+            {table.map((data) => {
+              return (
+                <NavLink
+                  to={`/weather/${data.name}/${data.geoname_id}`}
+                  key={data.geoname_id}
+                >
+                  <div className="table_row grid grid-cols-[150px_100px_100px] grid-rows-1 lg:gap-[28%]  pb-4 pt-4 border-b-2  border-[#1E1E1E] overflow-x-scroll w-full lg:w-[50rem] sm:w-[40rem] sm:gap-[20%]">
+                    <p>{data.name}</p>
+                    <p>{data.cou_name_en}</p>
+                    <p>{data.timezone}</p>
+                  </div>
+                </NavLink>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );

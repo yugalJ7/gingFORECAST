@@ -7,7 +7,12 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
-
+.table_header::-webkit-scrollbar {
+  display: none;
+}
+.table_row::-webkit-scrollbar {
+  display: none;
+}
 body {
   background-color: black;
 }

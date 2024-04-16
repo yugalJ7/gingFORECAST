@@ -21,7 +21,7 @@ const Navbar = () => {
           </span>
         </div>
       </NavLink>
-      <div className="navbarSearchBar flex bg-[#1E1E1E] w-[27rem] py-2 rounded-full px-3 gap-2">
+      <div className="navbarSearchBar flex bg-[#1E1E1E] w-[27rem] py-2 rounded-full px-3 gap-2 max-[624px]:w-56 max-[375px]:w-48">
         <CiSearch size={25} color="white" />
         <input
           placeholder="Search city..."
