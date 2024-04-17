@@ -13,6 +13,9 @@
 .table_row::-webkit-scrollbar {
   display: none;
 }
+.table_row-container::-webkit-scrollbar {
+  display: none;
+}
 body {
   background-color: black;
 }

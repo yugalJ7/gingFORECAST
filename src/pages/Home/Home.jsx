@@ -53,7 +53,7 @@ const Home = () => {
             <p>Country</p>
             <p className="pl-6">Timezone</p>
           </div>
-          <div className="flex flex-col w-full lg:w-[50rem] sm:w-[40rem] justify-center pt-8 text-white   ">
+          <div className="table_row-container flex flex-col w-full lg:w-[50rem] sm:w-[40rem] justify-center pt-8 text-white h-screen overflow-y-scroll">
             {table.map((data) => {
               return (
                 <NavLink
