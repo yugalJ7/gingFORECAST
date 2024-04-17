@@ -1,16 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
-import Searchbar from "../Searchbar/Searchbar";
 
 const Navbar = () => {
-  const { query, setQuery } = Searchbar();
-
-  console.log(query);
-
-  const handleEventChange = (e) => {
-    e.preventDefault();
-    setQuery("");
-  };
   return (
     <div className="navbar flex justify-around items-center py-3">
       <NavLink to={"/"}>
@@ -26,8 +17,6 @@ const Navbar = () => {
         <input
           placeholder="Search city..."
           className="searchBar text-sm focus:outline-none bg-[#1E1E1E]  placeholder:text-white text-white placeholder:font-extralight"
-          onChange={(e) => setQuery(e.target.value)}
-          value={query}
         />
       </div>
     </div>
