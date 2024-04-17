@@ -31,7 +31,7 @@ const Weather = () => {
   const geoCoding = async (name) => {
     try {
       const geoData = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${api.key}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${api.key}`
       );
       const dataResponse = await geoData.json();
       if (dataResponse[0]) {
