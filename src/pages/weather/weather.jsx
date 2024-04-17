@@ -5,7 +5,7 @@ import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
 import Forecast from "../../components/Forecast/Forecast";
 const api = {
   key: "4b8e2a554aa59a26e9324c2d4cc4d503",
-  base: "http://api.openweathermap.org/data/2.5/",
+  base: "https://api.openweathermap.org/data/2.5/",
 };
 
 const Weather = () => {
